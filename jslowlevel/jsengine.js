@@ -38,28 +38,63 @@
 //
 // foodThoughts();
 
-// how hoisting happens
-// 1. creation phase
-var favouriteFood = undefined;
-var foodThoughts = undefined;
+// // how hoisting happens
+// // 1. creation phase
+// var favouriteFood = undefined;
+// var foodThoughts = undefined;
+//
+// // 2. execution phase
+// var favouriteFood = "grapes";
+//
+// // 3. make the function
+// foodThoughts = function () {
+//     // 7. creation phase
+//     var favouriteFood = undefined;
+//     console.log("Originial fav food: " + favouriteFood);
+//
+//     var favouriteFood = "sushi";
+//
+//     console.log("New fav food: " + favouriteFood)
+// };
+//
+// // 4. run the function
+// foodThoughts();
+//
+// // 5. a new execution context is created
+// // 6. inside this execution context, hoisting happens
 
-// 2. execution phase
-var favouriteFood = "grapes";
+// call(), apply(), bind() to borrow methods
+function a() {
+    console.log('hi')
+}
 
-// 3. make the function
-foodThoughts = function () {
-    // 7. creation phase
-    var favouriteFood = undefined;
-    console.log("Originial fav food: " + favouriteFood);
+a();
+a.call();
+a.apply();
 
-    var favouriteFood = "sushi";
-
-    console.log("New fav food: " + favouriteFood)
+const wizard = {
+    name: 'Merlin',
+    health: 50,
+    heal(num1, num2) {
+        return this.health += num1 + num2;
+    }
 };
 
-// 4. run the function
-foodThoughts();
+const archer = {
+    name: 'Robin',
+    health: 30
+};
+//
+// console.log('1', archer);
+// // call takes params
+// wizard.heal.call(archer, 50, 30);
+// // apply takes array
+// wizard.heal.apply(archer, [50, 30]);
+// console.log('2', archer);
 
-// 5. a new execution context is created
-// 6. inside this execution context, hoisting happens
-
+// bind returns but not run a new function
+// bind can store the this keyword
+console.log('1', archer);
+const healArcher = wizard.heal.bind(archer, 50, 30);
+healArcher();
+console.log('2', archer);
