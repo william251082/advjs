@@ -118,39 +118,39 @@
 // delete
 
 
-// inline caching
-function findUser(user) {
-    return `found ${user.firstName} ${user.lastName}`
-}
-
-const userData = {
-    firstName: 'John',
-    lastName: 'Doe'
-};
-
-// use inline caching
-findUser(userData);
-
-// hidden classes
-function Animal(x, y) {
-    this.x = x;
-    this.y = y;
-}
-
-const obj1 = new Animal(1, 2);
-const obj2 = new Animal(3, 4);
+// // inline caching
+// function findUser(user) {
+//     return `found ${user.firstName} ${user.lastName}`
+// }
+//
+// const userData = {
+//     firstName: 'John',
+//     lastName: 'Doe'
+// };
+//
+// // use inline caching
+// findUser(userData);
+//
+// // hidden classes
+// function Animal(x, y) {
+//     this.x = x;
+//     this.y = y;
+// }
+//
+// const obj1 = new Animal(1, 2);
+// const obj2 = new Animal(3, 4);
 
 // this will be slow
 // instantiate object properties in the same order so
 // the hidden classes in the compiler wouldn't think it came from different objects
 // solution add the properties in the constructor or create the properties in order
-obj1.a = 30;
-obj1.b = 100;
-obj2.b = 100;
-obj2.a = 100;
-
-delete obj1.x = 30;
-
+// obj1.a = 30;
+// obj1.b = 100;
+// obj2.b = 100;
+// obj2.a = 100;
+//
+// delete obj1.x = 30;
+//
 
 // standard binary executable format for all modern browsers
 // https://webassembly.org/
