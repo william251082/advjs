@@ -21,3 +21,7 @@ calculate();
 
 // call stack operates in first in last out mode
 
+// stack overflow
+function inception() {
+    inception();
+}
