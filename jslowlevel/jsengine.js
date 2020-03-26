@@ -23,6 +23,8 @@
 //     someCalculation(5, 4);
 // }
 
+// combine interpreter and compiler == JIT compiler
+
 
 // // hoisting happens on every execution context
 // change to var to const to not rely on hoisting
