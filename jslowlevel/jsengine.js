@@ -150,3 +150,7 @@ obj2.b = 100;
 obj2.a = 100;
 
 delete obj1.x = 30;
+
+
+// standard binary executable format for all modern browsers
+// https://webassembly.org/
