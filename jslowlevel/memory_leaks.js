@@ -30,3 +30,6 @@ setInterval(() => {
 // // setInterval
 // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval
 
+
+// single threaded languages has on call stack --parallel --synchronous
+// alert() // mimics a long running js
