@@ -66,26 +66,26 @@
 // // 6. inside this execution context, hoisting happens
 
 // call(), apply(), bind() to borrow methods
-function a() {
-    console.log('hi')
-}
+// function a() {
+//     console.log('hi')
+// }
+//
+// a();
+// a.call();
+// a.apply();
+//
+// const wizard = {
+//     name: 'Merlin',
+//     health: 50,
+//     heal(num1, num2) {
+//         return this.health += num1 + num2;
+//     }
+// };
 
-a();
-a.call();
-a.apply();
-
-const wizard = {
-    name: 'Merlin',
-    health: 50,
-    heal(num1, num2) {
-        return this.health += num1 + num2;
-    }
-};
-
-const archer = {
-    name: 'Robin',
-    health: 30
-};
+// const archer = {
+//     name: 'Robin',
+//     health: 30
+// };
 //
 // console.log('1', archer);
 // // call takes params
@@ -96,7 +96,57 @@ const archer = {
 
 // bind returns but not run a new function
 // bind can store the this keyword
-console.log('1', archer);
-const healArcher = wizard.heal.bind(archer, 50, 30);
-healArcher();
-console.log('2', archer);
+// console.log('1', archer);
+// const healArcher = wizard.heal.bind(archer, 50, 30);
+// healArcher();
+// console.log('2', archer);
+
+// // compile c++ code
+// ~/Desktop g++ program.cpp -o program
+
+// Writing optimized code
+
+// hidden classes
+// https://richardartoul.github.io/jekyll/update/2015/04/26/hidden-classes.html
+
+// managing arguments
+// https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments
+// eval(); // problematic
+// arguments // use parameter destructuring instead
+// for in // use Object.keys instead
+// with
+// delete
+
+
+// inline caching
+function findUser(user) {
+    return `found ${user.firstName} ${user.lastName}`
+}
+
+const userData = {
+    firstName: 'John',
+    lastName: 'Doe'
+};
+
+// use inline caching
+findUser(userData);
+
+// hidden classes
+function Animal(x, y) {
+    this.x = x;
+    this.y = y;
+}
+
+const obj1 = new Animal(1, 2);
+const obj2 = new Animal(3, 4);
+
+// this will be slow
+// instantiate object properties in the same order so
+// the hidden classes in the compiler wouldn't think it came from different objects
+// solution add the properties in the constructor or create the properties in order
+obj1.a = 30;
+obj1.b = 100;
+obj2.b = 100;
+obj2.a = 100;
+
+delete obj1.x = 30;
