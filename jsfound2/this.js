@@ -21,7 +21,7 @@
 // 2. execute same code for multiple objects
 // 3. this could be referred as to 'who called me?'
 function importantPerson() {
-    console.log(this)
+    console.log(this.name)
 }
 
 const name = 'Sunny';
