@@ -1,25 +1,37 @@
-// func scope vs block scope
+// // func scope vs block scope
+//
+// // on js this is possible
+// if (5 > 4) {
+//     var secret = '12345';
+// }
+//
+// console.log(secret);
+//
+//
+// // func scope
+// function a() {
+//     var secret2 = '12345';
+// }
+//
+// console.log(secret2); // RE: not defined
+//
+//
+// // block scope in js can be achieved using let and const
+// if (5 > 4) {
+//     const secret = '12345';
+// }
+//
+// console.log(secret);
 
-// on js this is possible
-if (5 > 4) {
-    var secret = '12345';
+
+// exercise
+function loop() {
+    for (var i=0; i<5; i++) {
+        console.log(i)
+    }
+
+    console.log('final', i)
 }
 
-console.log(secret);
-
-
-// func scope
-function a() {
-    var secret2 = '12345';
-}
-
-console.log(secret2); // RE: not defined
-
-
-// block scope in js can be achieved using let and const
-if (5 > 4) {
-    const secret = '12345';
-}
-
-console.log(secret);
+loop();  // when let is used, ReferenceError: i is not defined
 
