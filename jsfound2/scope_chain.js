@@ -36,5 +36,8 @@ console.log(sayMyName()); // [Function: findName]
 console.log(sayMyName()()); // [Function: printName]
 console.log(sayMyName()()()); // 'John Doe'
 
+// test on the browser
+function a() {
 
+} // window.a // [[Scopes]] 0: {type: global etc}
 
