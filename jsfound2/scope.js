@@ -35,3 +35,11 @@ function loop() {
 
 loop();  // when let is used, ReferenceError: i is not defined
 
+
+
+// too much global vars pollutes the global namespace, having too much data, limited memory
+// issue with variable collision
+var z = 1;
+var z = 11;
+var z = 11;
+var z = 111;
