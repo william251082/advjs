@@ -52,3 +52,14 @@ console.log('?', giveMeTheCharacterNOW()); //this should return 'Simon' bud does
 //
 //
 // console.log('?', giveMeTheCharacterNOW());
+
+
+// context vs scope
+// context is object based, what's the value of this-keyword, which is the reference of that currently executing code
+// How the func is invoked with the value of this-keyword
+
+
+// scope is function based
+// scope is what is the variable access of a function, when it is invoked,
+// what is in the var env
+// refers to the visibility of the variable
