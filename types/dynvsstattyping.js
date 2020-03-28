@@ -31,3 +31,5 @@ console.log(a + 17); // hiiiii17
 var a = 'hiiiii';
 console.log(a + 17); // error
 
+// @flow
+
