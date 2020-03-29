@@ -69,14 +69,28 @@ let lizard = {
     }
 };
 
-const singLizard = dragon.sing.bind(lizard);
-// can't inherit fire attr
-console.log(singLizard());
-// inherit everything
-lizard.__proto__ = dragon;
-console.log(dragon);
-console.log(dragon.__proto__); // base object {}
-console.log(dragon.isPrototypeOf(lizard));
-// js will go up the prototype chain to find sing()
-console.log(lizard.sing());
+// const singLizard = dragon.sing.bind(lizard);
+// // can't inherit fire attr
+// console.log(singLizard());
+// // inherit everything
+// lizard.__proto__ = dragon;
+// console.log(dragon);
+// console.log(dragon.__proto__); // base object {}
+// console.log(dragon.isPrototypeOf(lizard));
+// // js will go up the prototype chain to find sing()
+// console.log(lizard.sing());
 
+
+// props that are inherited are not copied
+// js engine automatically looks up for the props
+// scope chain is different from the prototype chain
+// never manually use __proto__
+lizard.__proto__ = dragon;
+for (let prop in lizard) {
+    if (lizard.hasOwnProperty(prop))
+    console.log(prop)
+}
+
+const obj = {};
+obj.__proto__; // base object constructor
+obj.__proto__.__proto__;  // null
