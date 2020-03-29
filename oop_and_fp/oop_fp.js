@@ -56,45 +56,82 @@
 
 
 
-// factory function make/create
+// // factory function make/create
+//
+// // constructor functions
+// function Elf(name, weapon) {
+//     this.name = name;
+//     this.weapon = weapon;
+// }
+//
+// // prototype is useless with loose functions but as constructor function, it's pretty useful because it has call, apply and bind
+// Elf.prototype.attack = function () {
+//     return 'attack with ' + this.weapon
+// };
+//
+// // lexically scoped arrow function, this id defined to where it is written
+// // Elf.prototype.attack = () => {
+// //     return 'attack with ' + this.weapon
+// // }; // undefined
+//
+// // new keyword automatically returns the object and creates the constructor
+// // new keyword creates a new execution context --  this is the Object and not window anymore
+// const peter = new Elf('Peter', 'stones');
+// console.log(peter);
+//
+// const sam = new Elf('Sam', 'fire');
+// console.log(sam.name);
+// //sam doesn't have an attak() so js engine will go up the prototype chain and look at the method attack()
+// console.log(sam.attack());
+//
+//
+//
+// // built-in constructor functions are Object, Function etc. uppercase first letter-best practice
+// const Elf1 = new Function('name', 'weapon',
+//     `this.name = name;
+//     this.weapon = weapon;`);
+//
+// const sarah = new Elf1('Sarah', 'fireworks');
+// console.log(sarah.name);
 
+
+
+// More constructor functions
 // constructor functions
 function Elf(name, weapon) {
+    console.log('this', this);
     this.name = name;
     this.weapon = weapon;
+    console.log('this', this);
 }
-
-// prototype is useless with loose functions but as constructor function, it's pretty useful because it has call, apply and bind
+console.log('Elf.prototype before adding the prototype', Elf.prototype);
 Elf.prototype.attack = function () {
     return 'attack with ' + this.weapon
 };
 
-// lexically scoped arrow function, this id defined to where it is written
-// Elf.prototype.attack = () => {
-//     return 'attack with ' + this.weapon
-// }; // undefined
+// Elf.prototype.build = function () {
+//     function building() {
+//         // this is assigned to window
+//         return this.name +  ' builds a house';
+//     }
+//     return building.bind(this);
+// };
+// or
+Elf.prototype.build = function () {
+    const self = this;
+    function building() {
+        return self.name +  ' builds a house';
+    }
+    return building();
+};
 
-// new keyword automatically returns the object and creates the constructor
-// new keyword creates a new execution context --  this is the Object and not window anymore
 const peter = new Elf('Peter', 'stones');
-console.log(peter);
+console.log(peter.prototype); // undefined, peter is an object not a function
+console.log(peter.build());
+console.log(peter.attack());
+console.log('__proto__', peter.__proto__);  // points to Elf.prototype
+console.log('Elf.prototype', Elf.prototype);
 
 const sam = new Elf('Sam', 'fire');
 console.log(sam.name);
-//sam doesn't have an attak() so js engine will go up the prototype chain and look at the method attack()
 console.log(sam.attack());
-
-
-
-// built-in constructor functions are Object, Function etc. uppercase first letter-best practice
-const Elf1 = new Function('name', 'weapon',
-    `this.name = name;
-    this.weapon = weapon;`);
-
-const sarah = new Elf1('Sarah', 'fireworks');
-console.log(sarah.name);
-
-
-
-
-
