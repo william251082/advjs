@@ -135,3 +135,16 @@ console.log('Elf.prototype', Elf.prototype);
 const sam = new Elf('Sam', 'fire');
 console.log(sam.name);
 console.log(sam.attack());
+
+var a =new Number(5);
+// typeof a // object
+
+//internally js attached function constructor Number(), so you have access to all props like toString etc.
+var b = 5;
+// typeof  b // number
+// a == b //true
+// a === b //false
+b.toString();
+
+
+// everything has constructor functions except null and undefined
