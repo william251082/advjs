@@ -85,12 +85,43 @@ let lizard = {
 // js engine automatically looks up for the props
 // scope chain is different from the prototype chain
 // never manually use __proto__
-lizard.__proto__ = dragon;
-for (let prop in lizard) {
-    if (lizard.hasOwnProperty(prop))
-    console.log(prop)
-}
+// lizard.__proto__ = dragon;
+// for (let prop in lizard) {
+//     if (lizard.hasOwnProperty(prop))
+//     console.log(prop)
+// }
+//
+// const obj = {};
+// obj.__proto__; // base object constructor
+// obj.__proto__.__proto__;  // null
 
-const obj = {};
-obj.__proto__; // base object constructor
-obj.__proto__.__proto__;  // null
+
+const obj = {name: 'John'};
+obj.hasOwnProperty('name'); // true
+obj.hasOwnProperty('hasOwnProperty'); // false
+
+function a() {}
+// properties aren't in func(), it's up the prototype chain
+a.hasOwnProperty('call'); //false
+a.hasOwnProperty('apply'); //false
+a.hasOwnProperty('bind'); //false
+
+a.hasOwnProperty('name'); //name
+
+
+function multiplyBy5(num) { return num*5; }
+// base function -- function constructor
+// multiplyBy5.__proto__ // f() {[native code]}
+// capture as global var in the browser console -- to temp1
+// temp1 will have usual object props
+
+// multiplyBy5.__proto__ is Function.prototype
+// Object.prototype.__proto__ // null    // proto is a pointer to prototype
+
+
+const array = [];
+array.hasOwnProperty('map'); // false // map should live only in one place in memory
+array.__proto__.hasOwnProperty('map'); //true
+// Array.prototype
+// array.__proto__ is pointing to the parent Array.prototype
+
