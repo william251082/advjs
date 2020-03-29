@@ -27,3 +27,6 @@ sam.attack();
 peter.attack();
 
 // problem --methods like attack() should be generic, instead of copying in the memory for every elf
+
+
+
