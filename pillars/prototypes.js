@@ -137,3 +137,26 @@ socrates.age = 45;
 console.log(socrates);
 console.log(socrates.mortal);
 console.log(human.isPrototypeOf(socrates)); //true
+
+
+// only functions have the prototype property
+typeof Object  //function  --Object constructor creates an object wrapper
+typeof {};  // object
+
+// every functions has a prototype property and it references to an object
+// use to attach properties that will be inherited further down the prototype chain
+typeof Object.prototype  // base object, very last piece of the chain, root
+
+const obj = {};
+const arr = [];
+obj.prototype // undefined
+arr.prototype // undefined
+'string'.prototype // undefined
+obj.prototype // undefined
+
+
+function multiplyBy5(num) { return num*5; }
+multiplyBy5.prototype;  // constructor
+multiplyBy5.__proto__ === Function.prototype; // true f() {[native code]}
+multiplyBy5.__proto__.__proto__ // base object, constructor
+multiplyBy5.__proto__.__proto__ === Object.prototype // true, base object, constructor
