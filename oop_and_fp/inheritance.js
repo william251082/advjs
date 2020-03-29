@@ -48,7 +48,16 @@ class Ogre extends Character {
     }
 }
 
+const dolby = new Elf('Dolby', 'cloth', 'house');
 const houseElf = new Elf('Dolby', 'cloth', 'house');
 //houseElf.makeFort() // error
 const shrek = new Ogre('Shrek', 'club', 'green');
 shrek.makeFort();
+
+
+//tests
+console.log(Ogre.prototype.isPrototypeOf(shrek));
+console.log(Character.prototype.isPrototypeOf(Ogre.prototype));
+console.log(dolby instanceof Elf);
+console.log(dolby instanceof Ogre);
+console.log(dolby instanceof Character);
