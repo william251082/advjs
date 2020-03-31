@@ -54,4 +54,8 @@ function func2(num1) {
 // the return of func1
 func2(func1(1,2));
 
-
+// not everything can be pure functions
+// the goal of fp is to minimize side effect not make only pure functions
+// goal is to organize code the organize the side-effects
+// at the end of the day, there's always going to be a global state
+// build very small reusable and predictable functions
