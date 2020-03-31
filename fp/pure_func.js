@@ -76,3 +76,20 @@ notGood(5);
 Math.abs(Math.abs(-50)); // always be 50
 
 
+// Imperative vs Declarative
+// imperative --a computer needs to know how to do things
+// declarative --humans are declarative
+// the higher the level the language the more declarative it's can be
+
+// imperative
+for (let i=0; i < 1000; i++) {
+    console.log(i);
+}
+// jquery
+
+
+// declarative
+[1,2,3].forEach(item => console.log(item));
+// react
+// functional programming help to be more declarative
+// tell the programs what to do instead of how to do it.
