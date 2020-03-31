@@ -18,3 +18,7 @@ console.log(multiplyBy3AndAbsolute(-5));
 // pipe is evaluating from left to right
 // compose(f1,f2,f3,f4)(50);
 // pipe(f4,f3,f2,f1)(50);
+
+
+//arity
+// the fewer the param int he function the better
