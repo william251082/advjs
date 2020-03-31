@@ -25,7 +25,7 @@ const user = {
     purchases: []
 };
 const history1 = [];
-const compose = (f, g) => (...args) => f(g(...args);
+const compose = (f, g) => (...args) => f(g(...args));
 const pipe = (f, g) => (...args) => g(f(...args));
 const purchaseItem  = (...fns) => fns.reduce(compose);
 // reduce calls the func for all el of the arr
@@ -86,3 +86,10 @@ function goBack() {
 function goForward() {
 
 }
+
+console.log(user);
+
+
+// func without a return is just a procedure
+// connect(mapStateToProps, mapDistpatchToProps)(App); // Add data to props
+// mapDispatchToProps and mapStateToProps take actions and returns an object
