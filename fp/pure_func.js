@@ -59,3 +59,20 @@ func2(func1(1,2));
 // goal is to organize code the organize the side-effects
 // at the end of the day, there's always going to be a global state
 // build very small reusable and predictable functions
+
+
+// Idempotence: --function always doing what is expected
+function notGood(num) {
+    // return Math.random(num);
+    // still idempotent
+    console.log(num);
+}
+notGood(5);
+
+// idempotent:
+// deleting the user from db, even if you use it multiple time, it still going to return the empty field
+// http GET request --api call, given a parameter will always return the same results
+// being able to call yourself inside of yourself
+Math.abs(Math.abs(-50)); // always be 50
+
+
