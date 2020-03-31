@@ -39,8 +39,8 @@ console.log(array_m_2);
 
 // console.log is modifying something outside of global scope
 // not a pure function
-function a() {console.log('hi')}
-a();
+// function a() {console.log('hi')}
+// a();
 
 
 // input --> output   --input should always result in the same output -- referential transparency
@@ -157,3 +157,20 @@ const getCounter = closure();
 getCounter();
 getCounter();
 getCounter();
+
+
+//currying --translating the evaluation of a function that can take multiple args,
+// into currying to modify it into taking one param at a time
+const multiply = (a, b) => a*b;
+// multiply(3,4);
+const curriedMultiply = (a) => (b) => a*b;
+// now I can create multiple utility functions out of this
+// curriedMultiply(2)(3);
+// since it's already created, this the only place the this function run
+const curriedMultiplyBy5 = curriedMultiply(5);
+
+
+// 10 years from now, this is still reusable
+curriedMultiplyBy5(4);
+curriedMultiplyBy5(4);
+curriedMultiplyBy5(4);
