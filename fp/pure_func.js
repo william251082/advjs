@@ -82,7 +82,7 @@ Math.abs(Math.abs(-50)); // always be 50
 // the higher the level the language the more declarative it's can be
 
 // imperative
-for (let i=0; i < 1000; i++) {
+for (let i=0; i < 10; i++) {
     console.log(i);
 }
 // jquery
@@ -93,3 +93,67 @@ for (let i=0; i < 1000; i++) {
 // react
 // functional programming help to be more declarative
 // tell the programs what to do instead of how to do it.
+
+
+// Immutability  --not changing the state
+const obj = {name: 'Andrei'};
+function clone(obj) {
+    return {...obj}; // this is pure but with a lot of immutability i.e. change the name value
+}
+obj.name = 'Nana';
+
+
+// maintain immutability --don't change the state
+function updateName(obj) {
+    const obj2 = clone(obj);
+    obj2.name = 'Nana';
+    return obj2;
+}
+
+const updatedObj = updateName(obj);
+console.log(updatedObj, obj);
+
+// question: is it memory expensive to keep updating
+// answer: structural sharing, in fp a lot of space is empty
+// the idea is that if obj or arr is created,
+// it's not entirely copied, it store it under the hood and only the changes are copied
+
+
+// HOF --it either takes another func as arg or return another function
+const hof = () => () => 5;
+const hof2 = (fn) => fn(5);
+
+hof2(function a(x) { return x; });
+
+
+// Closure
+// const closure = function () {
+//     let count = 0;
+//     // increment has access to the recent count var
+//     // increment() is modifying the state of closure(), count
+//     return function increment() {
+//         count++;
+//         return count;
+//     }
+// };
+//
+// const incrementFn = closure();
+// incrementFn();
+// incrementFn();
+// incrementFn();
+
+// fp not modifying counter
+// closures only make a function impure if it modifies the closed over variable, count
+// as long as closures don't modify and mutate the the data outside, it's still pure
+const closure = function () {
+    let count = 55;
+    // private var, count
+    return function getCounter() {
+        return count;
+    }
+};
+
+const getCounter = closure();
+getCounter();
+getCounter();
+getCounter();
