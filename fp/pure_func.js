@@ -159,18 +159,34 @@ getCounter();
 getCounter();
 
 
-//currying --translating the evaluation of a function that can take multiple args,
-// into currying to modify it into taking one param at a time
-const multiply = (a, b) => a*b;
-// multiply(3,4);
-const curriedMultiply = (a) => (b) => a*b;
-// now I can create multiple utility functions out of this
-// curriedMultiply(2)(3);
-// since it's already created, this the only place the this function run
-const curriedMultiplyBy5 = curriedMultiply(5);
+// //currying --translating the evaluation of a function that can take multiple args,
+// // into currying to modify it into taking one param at a time
+// const multiply = (a, b) => a*b;
+// // multiply(3,4);
+// const curriedMultiply = (a) => (b) => a*b;
+// // now I can create multiple utility functions out of this
+// // curriedMultiply(2)(3);
+// // since it's already created, this the only place the this function run
+// const curriedMultiplyBy5 = curriedMultiply(5);
+//
+//
+// // 10 years from now, this is still reusable
+// curriedMultiplyBy5(4);
+// curriedMultiplyBy5(4);
+// curriedMultiplyBy5(4);
 
 
-// 10 years from now, this is still reusable
-curriedMultiplyBy5(4);
-curriedMultiplyBy5(4);
-curriedMultiplyBy5(4);
+
+// Partial Application --a process of producing function with a smaller number of parameters
+// taking a function applying some of its arguments into the function
+// then uses closures to later on be called with all the rest of the arguments
+
+// // curried version
+// const multiply = (a,b,c) => a*b*c;
+// const curriedMultiply = (a) => (b) => a*b*c;
+// curriedMultiply(5)(4)(3);
+
+// partial app version
+const multiply = (a,b,c) => a*b*c;
+const partialMultiplyBy5 = multiply.bind(null, 5);
+partialMultiplyBy5(4)(3);
