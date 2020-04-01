@@ -1,13 +1,23 @@
-// setTimeout(()=>{console.log('1', 'is the loneliest number')}, 0);
-// setTimeout(()=>{console.log('2', 'can be as bad as one')}, 10);
-//
-// //2
-// Promise.resolve('hi').then((data)=> console.log('2', data));
-//
-// //3
-// console.log('3','is a crowd');
-//
-//
+// Callback Queue -- Task Queue
+setTimeout(()=>{console.log('1', 'is the loneliest number')}, 0);
+setTimeout(()=>{console.log('2', 'can be as bad as one')}, 10);
+
+//2
+// Job Queue -- Microtask Queue
+// higher priority than callback queue
+Promise.resolve('hi').then((data)=> console.log('2', data));
+
+//3
+console.log('3','is a crowd');
+
+// 3 is a crowd // call stack
+// 2 hi // job queue
+// undefined // job queue
+// 1 is the loneliest number // callback queue
+// 2 can be as bad as one // callback queue
+
+
+
 // // what is program?
 // // allocate memory
 // // parse and execute --read and run commands
