@@ -50,12 +50,63 @@
 // since async await looks like synchronous
 // it can be handled by try catch
 // be sure to always wrap Promises in a try catch block
-console.log((async function() {
+// console.log((async function() {
+//     try {
+//         await Promise.resolve('oopsie #1');
+//         await Promise.reject('oopsie #2');
+//     } catch (e) {
+//         console.log(e)
+//     }
+//     console.log('is this still good?')
+// })());
+
+
+
+// problem
+console.log((function () {
     try {
-        await Promise.resolve('oopsie #1');
-        await Promise.reject('oopsie #2');
-    } catch (e) {
-        console.log(e)
+        throw new Error();
+    } catch (err) {
+        var err = 5;
+        var boo = 10;
+        console.log(err);
     }
-    console.log('is this still good?')
+    //Guess what the output is here:
+    console.log(err);
+    console.log(boo);
 })());
+// 5
+// undefined
+// 10
+// undefined
+
+// extending errors
+// build fully customizable Errors
+class AuthenticationError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'AuthenticationError';
+        this.favouriteSnack = 'grapes';
+    }
+}
+
+class DatabaseError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'DatabaseError';
+        this.favouriteSnack = 'grapes';
+    }
+}
+
+class PermissionError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'PermissionError';
+        this.favouriteSnack = 'grapes';
+    }
+}
+
+
+// throw new AuthenticationError('ooopsie');
+const a = new AuthenticationError('ooopsie');
+console.log(a.message);
